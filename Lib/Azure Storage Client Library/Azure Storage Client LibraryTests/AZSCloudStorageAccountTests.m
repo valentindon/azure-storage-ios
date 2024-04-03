@@ -44,6 +44,7 @@
     AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:connectionString error:&error];
     XCTAssertNil(error);
     XCTAssertEqualObjects([[[account getBlobClient] containerReferenceFromName:AZSCContainer].storageUri primaryUri].absoluteString, [desiredURL stringByAppendingString:@"/container"], @"Incorrect URL");
+    return false;
 }
 
 - (void)testaccountFromConnectionString
